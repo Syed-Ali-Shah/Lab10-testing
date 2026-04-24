@@ -1,3 +1,5 @@
+def flag = true
+
 pipeline {
     agent any
     stages {
@@ -23,11 +25,11 @@ pipeline {
         }
     }
     post {
-    always {
-        echo 'Post build condition running'
+        always {
+            echo 'Post build condition running'
+        }
+        failure {
+            echo 'Post Action if Build Failed'
+        }
     }
-    failure {
-        echo 'Post Action if Build Failed'
-    }
-}
 }
